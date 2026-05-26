@@ -139,18 +139,25 @@ GITHUB_TOKEN=ghp_tu_token_aqui_1234567890abcdef
 
 > ⚠️ **Nunca subas el archivo `.env` a GitHub.** Está incluido en el `.gitignore` por defecto.
 
-### 4. Configurar el servidor MCP en Antigravity
+### 4. Configurar el servidor MCP en Antigravity / Clientes MCP
 
-Editá el archivo de configuración de tu cliente MCP (ej. `mcp_config.json`):
+Editá el archivo de configuración de tu cliente MCP (ej. `mcp_config.json`).
+
+> 💡 **Seguridad Mejorada:** Gracias al sistema de resolución dinámica absoluta del servidor, este localiza automáticamente tu archivo `.env` en la raíz del proyecto. **No necesitas exponer ni harcodear tu `GITHUB_TOKEN` en este archivo de configuración.** El token se leerá de manera completamente segura desde tu `.env` local.
+
+#### Opción A: Ejecutar directamente con `tsx` (Código de desarrollo)
+
+Si preferís correr directamente el archivo TypeScript sin pasar por compilaciones:
 
 ```json
 {
   "mcpServers": {
     "soyhenry-github": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "--env-file=.env",
-        "/ruta/absoluta/al/proyecto/dist/server.js"
+        "-y",
+        "tsx",
+        "/ruta/absoluta/al/proyecto/src/server.ts"
       ]
     }
   }
@@ -158,21 +165,20 @@ Editá el archivo de configuración de tu cliente MCP (ej. `mcp_config.json`):
 ```
 
 > Reemplazá `/ruta/absoluta/al/proyecto/` con la ruta real en tu sistema.  
-> Ejemplo Linux/macOS: `/home/facurozalez/ProyectoM5_FacundoRozalez/dist/server.js`
+> Ejemplo Linux/macOS: `/home/facurozalez/ProyectoM5_FacundoRozalez/src/server.ts`
 
-#### Modo alternativo: ejecutar con tsx (sin compilar)
+#### Opción B: Ejecutar el JavaScript compilado (Recomendado para producción)
 
-Si preferís correr directamente el TypeScript sin pasar por `npm run build`:
+Si preferís correr el código compilado en la carpeta `dist/` tras hacer `npm run build`:
 
 ```json
 {
   "mcpServers": {
     "soyhenry-github": {
-      "command": "npx",
-      "args": ["-y", "tsx", "/ruta/absoluta/al/proyecto/src/server.ts"],
-      "env": {
-        "GITHUB_TOKEN": "ghp_tu_token_aqui"
-      }
+      "command": "node",
+      "args": [
+        "/ruta/absoluta/al/proyecto/dist/server.js"
+      ]
     }
   }
 }
