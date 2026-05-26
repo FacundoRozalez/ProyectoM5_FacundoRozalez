@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const createRepositoryTool = {
+export const createRepositoryTool: MCPToolDefinition = {
   name: "create_repository",
   description: "Crea un nuevo repositorio en la cuenta del usuario autenticado de GitHub.",
   inputSchema: {

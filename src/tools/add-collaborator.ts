@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const addCollaboratorTool = {
+export const addCollaboratorTool: MCPToolDefinition = {
   name: "add_collaborator",
   description: "Extra Credit: Agrega a otro usuario de GitHub como colaborador invitado a un repositorio dándole permisos a elección.",
   inputSchema: {

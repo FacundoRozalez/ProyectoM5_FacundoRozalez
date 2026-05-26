@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { formatErrorForLLM } from "./errors/index.js";
 import { logger } from "./utils/logging.js";
+import type { MCPToolDefinition } from "./utils/types.js";
 
 // Importación de las herramientas individuales
 import { createRepositoryTool } from "./tools/create-repository.js";
@@ -18,7 +19,7 @@ import { getFileContentTool } from "./tools/get-file-content.js";
 const server = new Server({ name: "automatehub-core-mcp", version: "2.0.0" }, { capabilities: { tools: {} } });
 
 // Mapeo en un diccionario para búsquedas O(1) en el handler
-const toolsRegistry: Record<string, any> = {
+const toolsRegistry: Record<string, MCPToolDefinition> = {
   [createRepositoryTool.name]: createRepositoryTool,
   [createIssueTool.name]: createIssueTool,
   [listRepositoriesTool.name]: listRepositoriesTool,

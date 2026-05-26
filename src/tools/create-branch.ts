@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const createBranchTool = {
+export const createBranchTool: MCPToolDefinition = {
   name: "create_branch",
   description: "Extra Credit: Crea una nueva rama (branch) de desarrollo a partir de otra existente para aislar código.",
   inputSchema: {

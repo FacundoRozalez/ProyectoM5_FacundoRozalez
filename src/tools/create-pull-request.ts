@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const createPullRequestTool = {
+export const createPullRequestTool: MCPToolDefinition = {
   name: "create_pull_request",
   description: "Extra Credit: Abre una propuesta de cambio (Pull Request) para fusionar el código de una rama secundaria hacia la principal.",
   inputSchema: {

@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const createCommitTool = {
+export const createCommitTool: MCPToolDefinition = {
   name: "create_commit",
   description: `Sube o edita uno o varios archivos de forma simultánea en un único commit atómico.
 

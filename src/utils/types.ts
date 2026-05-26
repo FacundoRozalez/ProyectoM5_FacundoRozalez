@@ -57,6 +57,7 @@ export interface MCPTextContent {
 export interface MCPResponse {
   content: MCPTextContent[];
   isError?: boolean;
+  [key: string]: unknown; // Compatibilidad con propiedades extra del SDK
 }
 
 // 5. Contrato base que debe cumplir cada archivo de la carpeta /tools
@@ -65,7 +66,7 @@ export interface MCPToolDefinition {
   description: string;
   inputSchema: {
     type: "object";
-    properties: Record<string, { type: string; description?: string; enum?: string[] }>;
+    properties: Record<string, any>; // Flexible: soporta schemas simples y anidados (arrays, objects, etc.)
     required?: string[];
   };
   handler: (args: unknown) => Promise<MCPResponse>;

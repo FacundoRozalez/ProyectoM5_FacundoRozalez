@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const getFileContentTool = {
+export const getFileContentTool: MCPToolDefinition = {
   name: "get_file_content",
   description: "Lee el contenido de un archivo específico desde un repositorio remoto de GitHub.",
   inputSchema: {

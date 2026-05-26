@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const listRepositoriesTool = {
+export const listRepositoriesTool: MCPToolDefinition = {
   name: "list_repositories",
   description: "Lista los repositorios personales que pertenecen al usuario autenticado (Optimizado con caché).",
   inputSchema: {

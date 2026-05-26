@@ -1,8 +1,9 @@
 import { ToolsSchemas } from "../schemas/index.js";
 import { gitHubOperations } from "../github/operations.js";
 import { ValidationError } from "../errors/index.js";
+import type { MCPToolDefinition } from "../utils/types.js";
 
-export const listIssuesTool = {
+export const listIssuesTool: MCPToolDefinition = {
   name: "list_issues",
   description: "Lista los reportes de error o tareas actuales asociados a un repositorio en base a su estado (open, closed, all).",
   inputSchema: {
