@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "automatehub-github": {
+      "command": "node",
+      "args": ["/tu/ruta/absoluta/mcp-github-agent/dist/server.js"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "tu_token_aqui_directo_o_heredado"
+      }
+    }
+  }
+}
