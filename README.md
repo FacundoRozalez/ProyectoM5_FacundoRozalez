@@ -496,12 +496,15 @@ ProyectoM5_FacundoRozalez/
 │       ├── retry.ts            # Backoff exponencial
 │       ├── rateLimiter.ts      # Control de solicitudes
 │       ├── cache.ts            # Caché en memoria
-│       └── logging.ts          # Logger estructurado
-├── dist/                      # JavaScript compilado (generado)
+│       ├── logging.ts          # Logger estructurado
+│       └── types.ts            # Interfaces y tipos
+│
+├── dist/                      # JavaScript compilado (generado al compilar)
 ├── .env                       # Variables de entorno (NO subir a git)
 ├── .env.example               # Plantilla de variables
 ├── package.json
 ├── tsconfig.json
+├── vitest.config.json
 └── README.md
 ```
 
