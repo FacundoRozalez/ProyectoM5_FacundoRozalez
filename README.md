@@ -433,39 +433,39 @@ Luego abrí `http://localhost:6274` en tu navegador, hacé clic en **Connect** y
 │                  AutomateHub MCP Server                     │
 │                     src/server.ts                           │
 │                                                             │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │               Tool Registry (9 tools)               │   │
-│  │  list_repositories  │  create_repository            │   │
-│  │  create_commit      │  get_file_content             │   │
-│  │  create_branch      │  create_issue                 │   │
-│  │  list_issues        │  create_pull_request          │   │
-│  │                     │  add_collaborator             │   │
-│  └──────────────────────────┬──────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │               Tool Registry (9 tools)               │    │
+│  │  list_repositories  │  create_repository            │    │
+│  │  create_commit      │  get_file_content             │    │
+│  │  create_branch      │  create_issue                 │    │
+│  │  list_issues        │  create_pull_request          │    │
+│  │                     │  add_collaborator             │    │
+│  └──────────────────────────┬──────────────────────────┘    │
 │                             │                               │
-│  ┌──────────────────────────▼──────────────────────────┐   │
-│  │              Capa de Validación (Zod)                │   │
-│  │                 src/schemas/index.ts                 │   │
-│  └──────────────────────────┬──────────────────────────┘   │
+│  ┌──────────────────────────▼──────────────────────────┐    │
+│  │              Capa de Validación (Zod)               │    │
+│  │                 src/schemas/index.ts                │    │
+│  └──────────────────────────┬──────────────────────────┘    │
 │                             │                               │
-│  ┌──────────────────────────▼──────────────────────────┐   │
-│  │           Capa de Operaciones GitHub                 │   │
-│  │              src/github/operations.ts                │   │
-│  │                                                      │   │
-│  │  ┌─────────────┐  ┌────────────┐  ┌─────────────┐  │   │
-│  │  │ Rate Limiter│  │   Cache    │  │Retry Backoff │  │   │
-│  │  └─────────────┘  └────────────┘  └─────────────┘  │   │
-│  └──────────────────────────┬──────────────────────────┘   │
+│  ┌──────────────────────────▼──────────────────────────┐    │
+│  │           Capa de Operaciones GitHub                │    │
+│  │              src/github/operations.ts               │    │
+│  │                                                     │    │
+│  │  ┌─────────────┐  ┌────────────┐  ┌─────────────┐   │    │
+│  │  │ Rate Limiter│  │   Cache    │  │Retry Backoff│   │    │
+│  │  └─────────────┘  └────────────┘  └─────────────┘   │    │
+│  └──────────────────────────┬──────────────────────────┘    │
 │                             │                               │
-│  ┌──────────────────────────▼──────────────────────────┐   │
-│  │           Formateo de Errores para LLM               │   │
-│  │                src/errors/index.ts                   │   │
-│  └──────────────────────────┬──────────────────────────┘   │
-└──────────────────────────────┼──────────────────────────────┘
-                               │ HTTPS / REST
-                               ▼
+│  ┌──────────────────────────▼──────────────────────────┐    │
+│  │           Formateo de Errores para LLM              │    │
+│  │                src/errors/index.ts                  │    │
+│  └──────────────────────────┬──────────────────────────┘    │
+└─────────────────────────────┼───────────────────────────────┘
+                              │ HTTPS / REST
+                              ▼
               ┌────────────────────────────────┐
-              │          API de GitHub          │
-              │   api.github.com/repos/...      │
+              │          API de GitHub         │
+              │   api.github.com/repos/...     │
               └────────────────────────────────┘
 ```
 
